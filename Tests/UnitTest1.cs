@@ -40,7 +40,7 @@ namespace Tests
             DynArray temp1 = new DynArray(5);
             temp1.Resize(11);
 
-            Assert.AreEqual(temp.GetLength(), temp1.GetLength());
+            Assert.AreNotEqual(temp.GetLength(), temp1.GetLength());
         }
 
         [TestMethod]
@@ -54,6 +54,8 @@ namespace Tests
             arr2.Insert(1, 2);
             arr2.Insert(2, 4);
 
+            Assert.AreEqual(arr1.GetArray()[2], 1);
+            Assert.AreEqual(arr2.GetArray()[4], 2);
             CollectionAssert.AreEquivalent(arr1.GetArray(), arr2.GetArray());
 
             arr1.PopBack();
